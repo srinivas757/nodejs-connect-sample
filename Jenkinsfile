@@ -9,6 +9,8 @@ pipeline {
 
     stage("Deploy"){
       steps{
+        sh "sudo docker stop srinivas"
+        sh "docker rm srinivas"
         sh "sudo docker run -itd -p 3000:3000 --name srinivas srinivas757:$BUILD_NUMBER"
       
       }
