@@ -3,13 +3,13 @@ pipeline {
   stages{
     stage("build"){
       steps{
-        sh "sudo docker build -t srinivas757:$Build number ."
+        sh "sudo docker build -t srinivas757:$BUILD_NUMBER ."
       }
     }
 
     stage("Deploy"){
       steps{
-        sh "sudo docker run itd -p 3000:3000 --name srinivas srinivas757:$Build number"
+        sh "sudo docker run itd -p 3000:3000 --name srinivas srinivas757:$BUILD_NUMBER"
       
       }
     }
