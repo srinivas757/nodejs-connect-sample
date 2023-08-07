@@ -3,14 +3,14 @@ pipeline {
   stages{
     stage("build"){
       steps{
-        sh "sudo npm install"
+        sh "sudo docker build -t srinivas757:$Build number ."
       }
     }
 
     stage("Deploy"){
       steps{
-        sh "sudo pm2 delete all"
-        sh "sudo pm2 start /bin/"
+        sh "sudo docker run itd -p 3000:3000 --name srinivas srinivas757:$Build number"
+      
       }
     }
   }
