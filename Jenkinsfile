@@ -12,6 +12,11 @@ pipeline {
         sh "sudo docker stop srinivas"
         sh "sudo docker rm srinivas"
         sh "sudo docker run -itd -p 3000:3000 --name srinivas srinivas757:$BUILD_NUMBER"
+        sh "sudo docker login -u srinivas757 -p 111757Ss$"
+        sh "sudo docker tag srinivas srinivas757/srinivas:$BUILD_NUMBER"
+        sh "sudo docker push srinivas757/srinivas:$BUILD_NUMBER"
+        
+        
       
       }
     }
