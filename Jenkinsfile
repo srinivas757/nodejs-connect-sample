@@ -10,6 +10,7 @@ pipeline {
     stage("Test"){
       steps{
         sh 'trivy image --scanners vuln --format template --template /usr/local/share/trivy/templates/html.tpl -o report.html srinivas757:$BUILD_NUMBER'
+        sh "cp report.html $WORKSPACE"
       
       }
     }
@@ -31,6 +32,11 @@ pipeline {
       
       }
     }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'treport.html', allowEmptyArchive: true
+        }
     
   }
 }
