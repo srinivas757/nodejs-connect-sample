@@ -37,6 +37,6 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'treport.html', allowEmptyArchive: true
         }
-    
+    }
   }
 }
