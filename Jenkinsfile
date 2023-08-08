@@ -10,6 +10,15 @@ pipeline {
     stage("Test"){
       steps{
         sh 'trivy image --scanners vuln --format template --template /usr/local/share/trivy/templates/html.tpl -o report.html srinivas757:$BUILD_NUMBER'
+        publishHTML target : [
+            allowMissing: true,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: './',
+            reportFiles: 'report.html',
+            reportName: 'Trivy Scan',
+            reportTitles: 'Trivy Scan'
+        ]
       }
     }
     
