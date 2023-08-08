@@ -39,11 +39,7 @@ pipeline {
       
       }
     }
+  
+  
   }
-    post {
-        always {
-            archiveArtifacts artifacts: 'treport.html', allowEmptyArchive: true
-        }
-    }
-
 }
