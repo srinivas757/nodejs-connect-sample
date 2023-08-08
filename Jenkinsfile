@@ -16,8 +16,6 @@ pipeline {
         sh "sudo docker tag srinivas757:$BUILD_NUMBER srinivas757/srinivas:$BUILD_NUMBER"
         sh "sudo docker push srinivas757/srinivas:$BUILD_NUMBER"
         
-        
-      
       }
     }
   }
