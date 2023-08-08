@@ -9,7 +9,7 @@ pipeline {
 
     stage("Test"){
       steps{
-        sh "trivy image srinivas757:$BUILD_NUMBER"
+        sh "trivy image --format template --template "@contrib/html.tpl" srinivas757:$BUILD_NUMBER"
       
       }
     }
