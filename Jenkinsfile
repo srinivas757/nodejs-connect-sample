@@ -42,11 +42,12 @@ pipeline {
       }
     }
 
+  }
+    
       post {
     failure {
       sh 'echo post build'
       }
     }
   
-  }
 }
