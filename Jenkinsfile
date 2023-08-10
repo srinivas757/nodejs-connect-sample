@@ -9,7 +9,9 @@ pipeline {
 
     stage("Test"){
       steps{
-        sh 'trivy image --scanners vuln --format template --template /usr/local/share/trivy/templates/html.tpl -o report.html srinivas757:$BUILD_NUMBER'
+        // sh 'trivy image --scanners vuln --format template --template /usr/local/share/trivy/templates/html.tpl -o report.html srinivas757:$BUILD_NUMBER'
+           sh 'wget https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl | trivy image --format template --template ./html.tpl -o report.html srinivas757:$BUILD_NUMBER'
+        
         publishHTML target : [
             allowMissing: true,
             alwaysLinkToLastBuild: true,
